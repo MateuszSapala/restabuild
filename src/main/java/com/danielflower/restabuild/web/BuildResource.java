@@ -12,13 +12,13 @@ import io.muserver.MuResponse;
 import io.muserver.rest.ApiResponse;
 import io.muserver.rest.Description;
 import io.muserver.rest.ResponseHeader;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.*;
 import org.eclipse.jgit.transport.URIish;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.HashMap;

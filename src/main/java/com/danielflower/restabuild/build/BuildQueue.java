@@ -1,9 +1,9 @@
 package com.danielflower.restabuild.build;
 
+import jakarta.ws.rs.ServiceUnavailableException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ws.rs.ServiceUnavailableException;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
