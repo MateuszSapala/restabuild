@@ -124,7 +124,7 @@ public class BuildResource {
         JSONObject result = new JSONObject()
             .put("builds", new JSONArray(
                 database.all().stream()
-                    .sorted((o1, o2) -> (int) (o2.queueStart - o1.queueStart))
+                    .sorted((o1, o2) -> Long.compare(o2.queueStart, o1.queueStart))
                     .skip(skip)
                     .limit(limit)
                     .map(br -> jsonForResult(uriInfo.getRequestUriBuilder().path(br.id), br))
