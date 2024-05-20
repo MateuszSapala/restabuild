@@ -30,6 +30,8 @@ jobs:
               "passphrase": "${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}",
               "configuration": {}
             }]
+      - run: git config --global user.email "test@example.com"
+      - run: git config --global user.name "Test user"
       - name: Verify package
         run: mvn --batch-mode verify
       - name: Release package
