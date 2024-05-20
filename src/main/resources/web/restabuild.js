@@ -32,11 +32,17 @@
             buildParamBox.value = qs.get('param') || '';
         }
 
+        var bashArgEscape = function (val) {
+            return val.replace('"', '\\"');
+        };
+
         var update = function () {
             var value = urlBox.value;
             var branch = branchBox.value;
             var buildParam = buildParamBox.value;
-            cc.textContent = 'curl -LNs -F \'gitUrl=' + (value || 'git-url') + '\' ' + '-F \'branch=' + (branch || 'master') + '\' ' + (buildParam ? '-F \'param=' + buildParam + '\' ' : '') + '\'' + form.action + '\'';
+            var branchParamArg = branch ? ' -F "branch=' + bashArgEscape(branch) + '"' : '';
+            var buildParamArg = buildParam ? ' -F "param=' + bashArgEscape(buildParam) + '"' : '';
+            cc.textContent = 'curl -LNs -F "gitUrl=' + (value || 'git-url') + '"' + branchParamArg + buildParamArg + ' "' + form.action + '"';
             history.replaceState(null, null, value ? encodeURI(path) + '?url=' + encodeURIComponent(value) : encodeURI(path));
         };
         urlBox.addEventListener('input', update);
