@@ -25,7 +25,7 @@
     </ciManagement>
     <scm>
         <url>https://github.com/danielflower/restabuild</url>
-        <connection>scm:git:git@github.com:danielflower/restabuild.git</connection>
+        <connection>scm:git:https://github.com/danielflower/restabuild.git</connection>
     </scm>
 
     <inceptionYear>2016</inceptionYear>
